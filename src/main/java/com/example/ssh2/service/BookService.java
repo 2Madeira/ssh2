@@ -6,6 +6,8 @@ import com.example.ssh2.domain.BookNotFoundException;
 import com.example.ssh2.domain.BookRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+
 @Service
 public class BookService {
 
@@ -37,7 +39,7 @@ public class BookService {
 
     public Book editBookDetails(String isbn, Book book) {
         return bookRepository.findByIsbn(isbn)
-                .map(existingBook -> bookRepository.save(new Book(isbn, book.title(), book.author(), book.price())))
+                .map(existingBook -> bookRepository.save(new Book(existingBook.id(), isbn, book.title(), book.author(), book.price(), existingBook.version(), existingBook.createdDate(), existingBook.lastModifiedDate())))
                 .orElseGet(() -> bookRepository.save(book));
     }
 

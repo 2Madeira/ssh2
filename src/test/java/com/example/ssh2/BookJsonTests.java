@@ -18,7 +18,7 @@ public class BookJsonTests {
 
     @Test
     public void testSerialize() throws IOException {
-        var book = new Book("1234567891011", "Title", "Author", 9.90);
+        var book = Book.of("1234567891011", "Title", "Author", 9.90);
         var jsonContent = jacksonTester.write(book);
         assertThat(jsonContent).extractingJsonPathStringValue("@.title").isEqualTo(book.title());
         assertThat(jsonContent).extractingJsonPathStringValue("@.isbn").isEqualTo(book.isbn());

@@ -15,8 +15,16 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.springframework.cloud:spring-cloud-starter-config:4.0.1")
+	implementation("org.springframework.retry:spring-retry")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+	implementation("org.postgresql:postgresql")
+	implementation("org.flywaydb:flyway-core")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webflux")
+	testImplementation("org.testcontainers:postgresql:1.17.6")
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.withType<Test> {
