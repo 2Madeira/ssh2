@@ -22,7 +22,7 @@ class Ssh2ApplicationTests {
 
     @Test
     public void whenPostRequestThenBookCreated() {
-        var expectedBook = Book.of("1234567891011", "Title", "Author", 9.90);
+        var expectedBook = Book.of("1234567891011", "Title", "Author", 9.90, "Polarsophia");
         webTestClient.post().uri("/books")
                 .bodyValue(expectedBook)
                 .exchange()
