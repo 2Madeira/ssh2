@@ -6,6 +6,7 @@ server:
     threads:
       max: 50
       min-spare: 5
+  shutdown: graceful
 polar:
   greeting: ahun
 spring:
@@ -13,6 +14,8 @@ spring:
     name: catalog-service
   profiles:
     active: test-data, prod
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
   config:
     import: "optional:configserver:"
   cloud:
